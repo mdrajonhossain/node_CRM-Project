@@ -1,0 +1,92 @@
+<!-- User Window -->
+<div class="ui-widget-content ui-corner-all window float" id="users" menu="userMenu" style="display:none;">
+         
+         <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-accordion-header-active ui-state-active ui-corner-top ui-accordion-icons" role="tab" aria-controls="ui-accordion-accordion-panel-0" aria-selected="true" tabindex="0">
+         <span class="close ui-accordion-header-icon ui-icon ui-icon-closethick" onClick="hideMe('users');">
+             
+         </span><center><a href="#">SGI Core Users</a></center></h3>
+
+        <form id="frmUser" class="entry">
+
+            <div id="tabs">
+                <ul>
+                    <li><a href="#fragment-1">User Info</a></li>
+                    <li><a href="#fragment-2">Main Menu</a></li>
+                    <li><a href="#fragment-3">Customer Menu</a></li>
+                </ul>
+            <div id="fragment-1">
+                <ul>
+                    <li>
+                        <label>F Name</label>
+                        <input type="text" id="firstName">
+                        <label>L Name</label>
+                        <input type="text" id="lastName">
+                    </li>
+                    <li>
+                        <label>Login</label>
+                        <input type="text" id="login" size="5">
+                    </li>
+                    <li>
+                        <label>Password</label><input type="password" id="password">
+                        <label>Re-Enter Password</label><input type="password" id='repass'>
+                        <script type="text/javascript">
+                        $( "#password" ).blur(function(){
+                            $( "#repass" ).focus();
+                        });
+                        $( "#repass" ).blur(function(){
+                            password();
+                        });
+                        </script>
+                    </li>
+                    <li><input type="hidden" id="encryptedPass"><input type="hidden" id="salt"></li>
+                </ul>
+            </div>
+            <div id="fragment-2">
+                 <ul>
+                    <li>
+                        <input type="checkbox" value='{"menu" : "mainMenu", "command" : "mainCust", "label" : "Main Cust"}' id="menu-mainCust"><label>Main Cust</label>
+                        <input type="checkbox" value='{"menu" : "mainMenu", "command" : "mainOrder", "label" : "Main Orders"}' id="menu-mainOrder"><label>Main Order</label>
+                        <input type="checkbox" value='{"menu" : "mainMenu", "command" : "products", "label" : "Products"}' id="menu-products"><label>Products</label>
+                        <input type="checkbox" value='{"menu" : "mainMenu", "command" : "employee", "label" : "Employee"}' id="menu-employee"><label>Employee</label>
+                        <input type="checkbox" value='{"menu" : "mainMenu", "command" : "utils", "label" : "Utilities"}' id="menu-utils"><label>Utilities</label>
+                        <input type="checkbox" value='{"menu" : "mainMenu", "command" : "users", "label" : "Users"}' id="menu-users"><label>Users</label>
+                    </li>
+                </ul>
+            </div>
+            <div id="fragment-3">
+            
+                <ul>
+                    <li>
+                        <input type="checkbox" value='{"menu" : "custMenu", "command" : "loadlist", "label" : "Load List"}' id="menu-loadlist"><label>Load List</label>
+                        <input type="checkbox" value='{"menu" : "custMenu", "command" : "loadticket", "label" : "Load Ticket"}' id="menu-loadticket"><label>Load Ticket</label>
+                        <input type="checkbox" value='{"menu" : "custMenu", "command" : "countsich", "label" : "Count SIC H`s"}' id="menu-countsich"><label>Count SIC H`s</label>
+                        <input type="checkbox" value='{"menu" : "custMenu", "command" : "loadticketnew", "label" : "Load Ticket New"}' id="menu-loadticketnew"><label>Employee</label>
+                    </li>
+                </ul>
+            </div>
+           </div>
+   
+                
+       
+        <script type="text/javascript">
+        
+        //$(function() {
+           //$( "#tabs" ).tabs();
+        //});
+        /*$(function() {
+        $( "#shipdDt" ).datepicker();
+        });
+        $(function() {
+        $( "#recvdDt" ).datepicker();
+        });*/
+        $( "button" ).button();
+        $( "#tabs" ).tabs();
+
+        </script>
+        </form>
+        <div class="status">
+            <button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="saveData();">
+               <span class="ui-button-text">Save</span>
+            </button>
+        </div>
+    </div>    

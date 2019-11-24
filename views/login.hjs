@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   {{> head}}
+   
+  </head>
+  <body class="ui-widget-overlay">
+  <!-- <div class="message">{{ message }}</div> -->
+<div class="window login ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable ui-resizable" id='login'> 
+<form id="frmLogin" action="/login" method="post" class="entry">
+   <!-- <fieldset class='entry'> 
+    <legend>SGI Core User Login</legend>    -->   
+<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-8" class="ui-dialog-title">SGI Core User Login</span></div>
+    <ul>
+        <li>
+            <label>Username:</label>
+            <input type="text" name="username" id="username"/>
+        </li>
+    </ul>
+     <ul>
+        <li>
+            <label>Password:</label>
+            <input type="password" name="password" id="password"/>
+        </li>
+    </ul> 
+    <div class="ui-dialog-buttonset center">
+      <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false">
+        <span class="ui-button-text">Log In</span>
+      </button>
+    </div>
+   <!-- </fieldset>-->
+</form>
+</div>
+
+   <script type="text/javascript">
+    $('document').ready(function(){
+       var message = "{{ message }}";
+       var alertBox = '<div class="ui-widget message ui-corner-all" id="authMessage">'
+          + '<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">'
+          + '<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;">'
+          + '</span><strong>Authentication Error:</strong><BR><center>' + message + '</center></p></div>';
+       if (message != "") {
+            $( alertBox ).insertBefore( "#login" );
+            $( "#authMessage" ).slideDown("slow");
+        }
+        $( "button" ).button();
+        $('#username').focus();
+
+      });
+   </script>
+   
+</div>
+</body>
+</html>
